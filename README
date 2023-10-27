@@ -1,0 +1,43 @@
+Spring Boot Microservice with REST APIs
+This Spring Boot microservice provides four REST APIs for data manipulation in a database using JPA. 
+The application allows users to perform CRUD operations on a table with the following schema:
+
+id: A numeric auto-incrementing field.
+title: A string field.
+date1: A timestamp field.
+qty: A numeric field.
+
+APIs
+GET /v1/data/{id}:
+Reads a single line from the database using the id passed as a path parameter.
+
+POST /v1/data:
+Inserts a line into the database using the payload passed in the request body.
+
+PUT /v1/data/{id}:
+Updates a line in the database using the id passed as a path parameter and the payload.
+
+DELETE /v1/data/{id}:
+Deletes a line from the database using the id passed as a path parameter.
+
+Database Table Creation
+To create the required table in the database, use the following SQL script:
+
+CREATE TABLE item (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  date1 TIMESTAMP,
+  qty INT CHECK (qty > 0)
+);
+
+API Documentation
+This application is documented using OpenAPI/Swagger to provide a detailed specification of the REST APIs and data structures used. The Swagger UI documentation can be accessed by running the application and navigating to the following URL: 
+http://localhost:9090/swagger-ui.html
+
+Data Validation
+The application includes validation annotations to ensure that the passed data adheres to the specified requirements. 
+Specifically, the title field is mandatory, and the qty field must have a value greater than 0.
+
+
+
+
