@@ -26,7 +26,7 @@ To create the required table in the database, use the following SQL script:
 CREATE TABLE item (
   id INT AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(255) NOT NULL,
-  date1 TIMESTAMP,
+  date DATE,
   qty INT CHECK (qty > 0)
 );
 
